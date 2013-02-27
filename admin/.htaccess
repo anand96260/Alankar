@@ -1,0 +1,6 @@
+RewriteEngine On
+ErrorDocument 403 /alankar/admin/403.php
+ErrorDocument 404 /alankar/admin/404.php
+ErrorDocument 405 /alankar/admin/405.php
+ErrorDocument 500 /alankar/admin/500.php
+ErrorDocument 503 /alankar/admin/503.php
