@@ -1,5 +1,14 @@
 <?
 include("admin/common/config.php");
+if($_GET[page]=="")
+{
+$page=1;
+}
+else
+{
+$page=$_GET[page];
+}
+
 if($_POST[Reserve]=="Reserve")
 {
 $Arrival=$_POST[arrivaldate_datepicker];
@@ -7,20 +16,10 @@ $Departure=$_POST[departuredate_datepicker];
 
 header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$Departure&Unit=$_POST[units]&Adult=$_POST[adults]&Children=$_POST[children]&Nights=$_POST[nights]");
 }
-					if(isset($_POST[send_email_copy]))
-					{
-					$selectAdmin=mysql_fetch_object(mysql_query("select * from gts_users where ID='1'"));
-					$AdminEmail=$selectAdmin->user_email;
-					$ToEmail = $_POST[email];
-					$EmailSubject = 'Your reservation at Hotel Alankar Grande';
-					$mailheader = "From: ".$AdminEmail."\r\n";
-					$mailheader .= "Reply-To: ".$AdminEmail."\r\n";
-					$mailheader .= "Content-type: text/html; charset=iso-8859-1\r\n";
-					$MESSAGE_BODY = $_SESSION['EmailContent'];					
-					mail($ToEmail, $EmailSubject, $MESSAGE_BODY, $mailheader); 
-					header("Location: thanks.php");
-					}	
-
+if($_POST[download]=="Download Our Menu card")
+{
+header("Location: download_gossip.php");
+}
 ?>
 
 <!doctype html>  
@@ -34,20 +33,20 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Refresh" content="120; url=thanks.php">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="alternate" type="text/xml" title="RSS .92" href="feed/rss/index.html" />
     <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="feed/atom/index.html" />
     <link rel="pingback" href="xmlrpc.php" />
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style1.css" type="text/css" media="screen" />
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Welcome to Hotel Alankar Grande - Reservation Thanks</title>
+    <title>Welcome to Hotel Alankar Grande - Restaurants - Gossip</title>
     
 <link rel='stylesheet' id='gp_components-css'  href='css/componentse735.css?ver=3.4' type='text/css' media='all' />
 <link rel='stylesheet' id='gp_responsive-css'  href='css/responsivee735.css?ver=3.4' type='text/css' media='all' />
+<link rel="stylesheet" href="css/supersized.shutter.css" type="text/css" media="screen" />
 <script type='text/javascript' src='js/jquery/jqueryba3a.js?ver=1.7.2'></script>
 <script type='text/javascript' src='js/supersizede735.js?ver=3.4'></script>
 <script type='text/javascript' src='js/supersized.shuttere735.js?ver=3.4'></script>
@@ -66,6 +65,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 <script language="javascript" type="text/javascript" src="script/mootools-1.2.1-core.js"></script>
 <script language="javascript" type="text/javascript" src="script/mootools-1.2-more.js"></script>
 <script language="javascript" type="text/javascript" src="script/slideitmoo-1.1.js"></script>
+
 <script language="javascript" type="text/javascript">
 	window.addEvents({
 		'domready': function(){
@@ -96,7 +96,8 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 	
     
 			<script type="text/javascript">
-		jQuery(function() {
+		
+			jQuery(function() {
 				jQuery("#arrivaldate_datepicker").datepicker({ 
 					firstDay: 1,
 					dateFormat: "dd-mm-yy",
@@ -120,33 +121,53 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 			});
 			jQuery(function($){
 				
-				jQuery.supersized({				
-					slide_interval: 8000,
+				jQuery.supersized({	
+					
+					slide_interval: 3500,
 					transition: 'fade',
 					transition_speed: 800,
 					new_window: 0,
 					horizontal_center: 1,
-					progress_bar: 0,
+					progress_bar: 1,
 					mouse_scrub: 0,
+					slide_links				:	'blank',
+					thumb_links				:	1,			// Individual thumb links for each slide
+					thumbnail_navigation    :   1,			// Thumbnail navigation
 															   
 					slides: [
+																																	{image: 'files/slider/001.jpg', title : 'Alankar Hotel', thumb : 'files/slider/001.jpg'},								
 										
-																																	{image: 'files/slider/001.jpg', title : ''},								
+																																	{image: 'files/slider/002.jpg', title : 'Alankar Hotel', thumb : 'files/slider/002.jpg'},								
 										
-																																	{image: 'files/slider/002.jpg', title : ''},								
+																																	{image: 'files/slider/003.jpg', title : 'Alankar Hotel', thumb : 'files/slider/003.jpg'},								
 										
-																																	{image: 'files/slider/003.jpg', title : ''},								
-										
-																																	{image: 'files/slider/004.jpg', title : ''},								
+																																	{image: 'files/slider/004.jpg', title : 'Alankar Hotel', thumb : 'files/slider/004.jpg'},								
 
 										
-																																	{image: 'files/slider/005.jpg', title : ''},								
+																																	{image: 'files/slider/005.jpg', title : 'Alankar Hotel', thumb : 'files/slider/005.jpg',url : '#'},								
 										
-																																	{image: 'files/slider/006.jpg', title : ''},								
+																																	{image: 'files/slider/006.jpg', title : 'Alankar Hotel', thumb : 'files/slider/006.jpg'},								
 										
-																																	{image: 'files/slider/007.jpg', title : ''},								
+																																	{image: 'files/slider/007.jpg', title : 'Alankar Hotel', thumb : 'files/slider/007.jpg'},								
 										
-																																	{image: 'files/slider/008.jpg', title : ''}								
+																																	{image: 'files/slider/008.jpg', title : 'Alankar Hotel', thumb : 'files/slider/008.jpg'},							
+										
+																																	{image: 'files/gossip/gossip1.jpg', title : 'Alankar Hotel', thumb : 'files/gossip/gossip1.jpg'},								
+										
+																																	{image: 'files/gossip/gossip2.jpg', title : 'Alankar Hotel', thumb : 'files/gossip/gossip2.jpg'},								
+										
+																																	{image: 'files/gossip/gossip3.jpg', title : 'Alankar Hotel', thumb : 'files/gossip/gossip3.jpg'},								
+										
+																																	{image: 'files/gossip/gossip4.jpg', title : 'Alankar Hotel', thumb : 'files/gossip/gossip4.jpg'},								
+						
+																																	{image: 'files/gossip/gossip5.jpg', title : 'Alankar Hotel', thumb : 'files/gossip/gossip5.jpg'}	,
+{image: 'files/se/se3.jpg', title : ''},								
+										
+																																	{image: 'files/se/se2.jpg', title : 'Alankar Hotel', thumb : 'files/se/se2.jpg'},								
+										
+																																	{image: 'files/se/se1.jpg', title : 'Alankar Hotel', thumb : 'files/se/se1.jpg'},								
+										
+																																	{image: 'files/se/se4.jpg', title : 'Alankar Hotel', thumb : 'files/se/se4.jpg'}																																		
 										]
 
 				});
@@ -184,60 +205,28 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 			});
 		//]]>
 		</script>
-		<script type="text/javascript">     
-        function PrintDiv() {    
-           var divToPrint = document.getElementById('divToPrint');
-           var popupWin = window.open('', '_blank', 'width=1024,height=768');
-           popupWin.document.open();
-           popupWin.document.write('<html> <head><title>Hotel Alankar Grande - Reservation</title><style type=\"text/css\" media="print" > li{margin-left:5px;} h4{ border-spacing: 2px;}</style> </head><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-            popupWin.document.close();
-                }
-		window.onunload=function(){
-		session_destroy();
-		};		
-		</script>
-	    <SCRIPT language=Javascript>
-       <!--
-       function isNumberKey(evt)
-       {
-          var charCode = (evt.which) ? evt.which : event.keyCode;
-          if (charCode != 46 && charCode > 31 
-            && (charCode < 48 || charCode > 57))
-             return false;
-
-          return true;
-       }
-       //-->
-	   function validateEmail(emailField){
-        var reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-        if (reg.test(emailField.value) == false) 
-        {
-            alert('Invalid Email Address');
-            return false;
-        }
-
-        return true;
-
-}
-    </SCRIPT>
+	     <style>
+		#searchboxleft{
+		background-color:#b79d69;
+		}
+		</style> 
 </head>
 
 
 <body class="home page page-id-5 page-template page-template-page-home-php">
-
+<!--===============================================================header begins===============================================================-->
     <? include("header.php"); ?><!-- header -->
-	 <nav class="navigation left">
+	            <nav class="navigation left">
                 <div class="navigation-container">
 				
                 	<div class="menu-primary-navigation-container">
 <ul id="menu-primary-navigation" class="menu">
-<li id="menu-item-264" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-264"><a href="index.php">Home</a></li>
+<li id="menu-item-264" class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-5 current_page_item menu-item-264"><a href="index.php">Home</a></li>
 <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current_page_ancestor menu-item-242"><a href="about.php">About Us</a>
 </li>
 <li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250"><a href="restaurant.php">Restaurants</a>
 <ul class="sub-menu">
-	<li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="gossip.php">Gossip</a></li>
+	<li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-245"><a href="gossip.php">Gossip</a></li>
 	<li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="topaz.php">Topaz</a></li>
 	<li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="southeast.php">South East</a></li>
 	<li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="tiffinys.php">Tiffinys</a></li>
@@ -247,7 +236,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="facilities.php">Facilities</a></li>
 <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="rooms.php">Rooms & Accomodation</a>
 </li>
-<li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="gallery.php">Gallery</a></li>
+<li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item menu-item-251"><a href="gallery.php">Gallery</a></li>
 <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="contact.php">Contact us</a></li>
 </ul></div> 
 
@@ -261,16 +250,16 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 					<ul>
                 		<li class="select"><a href="#" onClick="return false;"> Menu </a>
 							<div class="menu-primary-navigation-container"><ul id="menu-primary-navigation-1" class="menu">
-<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-264"><a href="index.php">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page  page_item page-item-5 current_page_item menu-item-264"><a href="index.php">Home</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current_page_ancestor menu-item-242"><a href="about.php">About Us</a>
 
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250"><a href="restaurant.php">Restaurants</a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-250"><a href="restaurant.php">Restaurants</a>
 
 <ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="gossip.php">Gossip</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item menu-item-245"><a href="gossip.php">Gossip</a></li>
 	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="topaz.php">Topaz</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-246"><a href="southeast.php">South East</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor  menu-item-246"><a href="southeast.php">South East</a></li>
 	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="tiffinys.php">Tiffinys</a></li>
 </ul>
 
@@ -280,7 +269,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="rooms.php">Rooms</a>
 
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="gallery.php">Gallery</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-parent current_page_parent current_page_ancestor menu-item-248"><a href="gallery.php">Gallery</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="contact.php">Contact Us</a>
 
 </li>
@@ -293,15 +282,16 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
         <br class="clear" />
         </div><!-- header-container -->
     </header>
- <!--===============================================================header ends===============================================================-->   
-    
+ <!--===============================================================header ends===============================================================-->    
      <div class="canvas">		
         <header class="page-header">
-            <h1>Thankyou - Hotel Alankar Grande</h1>
+            <h1>Welcome to Hotel Alankar Grande - Gallery</h1>
         </header><!-- page-header -->
         		
 		<div class="content shadow-top left">
-            <div class="content-container">
+			
+            <?php /*
+			<div class="content-container">
 				            
                 <div class="page-left left">
 
@@ -312,41 +302,66 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
     
                             																		<div class="content-page left">
 										<div class="content-page-container">
-<?
-if(isset($_SESSION['confirm_reserve_id']))
-{
-?>
-<div id="divToPrint">
-<?php echo $_SESSION['EmailContent'];?>
-</div> 
-Send a Copy of reservation to Your Special one here:
-<form action="" method="post">
-<table>
-<tr>
-<td>
-<input name="email" type="email" id="email" tabindex="5" size="35" maxlength="50" style="padding:0px;" onblur="validateEmail(this);" required>
-</td>
-</tr>
+										<form action="" method="post">
+										<table width="100%" border="0" cellspacing="5" cellpadding="5" class="reservefootbox">
+  
+  <tr>
+	<td width="80%" style="color:#fff"><? echo $_SESSION['jif']; ?></td>
+    
+    <td width="20%" ><input type="submit" name="download" id="download" value="Download Our Menu card" class="button"><!--<a href="download_gossip.php" Class="button">Download Our Menu card </a>--></td>
+  </tr>
 </table>
-<table>
-<tr>
-<td colspan="2">
-<input type="button" value="Print" onClick="PrintDiv();"  class="button" /></td>
-<td colspan="2"><input type="submit" name="send_email_copy" id="send_email_copy" value="Send a Copy Mail" class="button"></td>
-
-</tr>
-</table>
-</form>
-
-<?
-
-}
-?>   
-
-                                 
-
-											
-										  </div><!-- content-page-container -->
+</form>										
+										<br/> <br />
+										<!--<object data="pdf/gossip.pdf" type="application/pdf" width="100%" height="100%">
+ 
+<a href="pdf/gossip.pdf">click here to
+  download the PDF file.</a>
+  
+</object>-->
+										<iframe
+		src="http://docs.google.com/gview?url=http://www.oxygencreations.com/alankar1/pdf/gossip.pdf&embedded=true"
+		frameborder="0" width="600" height="780"></iframe>
+		<!--<iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.oxygencreations.com%2Falankar1%2Fpdf%2Fgossip.pdf&embedded=true" width="600" height="780" style="border: none;"></iframe>-->
+									<?php /*?>	<?  $next=$page+1;
+                                        	$prev=$page-1;
+										?>
+                                        <p align="center" style="font-size:14px; font-weight:bold;">
+                                        <? if($page!=1)
+										{ ?>
+                                        <a href="gossip.php?page=<?=$prev?>">Prev</a>&nbsp;&nbsp;
+                                        <? } ?>
+                                        <? if($page!=4) { ?>
+                                        &nbsp;&nbsp;<a href="gossip.php?page=<?=$next?>">Next</a>
+                                        <? } ?>
+                                        </p>
+                                        
+                                            
+                                       <? if($page==1) { ?>  
+                                       <img src="images/GossipMenu1.png" width="700" > 
+                                       <? } ?>
+                                       <? if($page==2) { ?>
+                                       <img src="images/GossipMenu2.png" width="700" >
+                                       <? } ?>
+                                       <? if($page==3) { ?> 
+                                       <img src="images/GossipMenu3.png" width="700" > 
+                                       <? } ?>
+                                       <? if($page==4) { ?>
+                                       <img src="images/GossipMenu4.png" width="700" > 
+                                       <? } ?> 
+                                         
+                                         
+                                         <p align="center" style="font-size:14px; font-weight:bold;">
+                                        <? if($page!=1)
+										{ ?>
+                                        <a href="gossip.php?page=<?=$prev?>">Prev</a>&nbsp;&nbsp;
+                                        <? } ?>
+                                        <? if($page!=4) { ?>
+                                        &nbsp;&nbsp;<a href="gossip.php?page=<?=$next?>">Next</a>
+                                        <? } ?>
+                                        </p>
+                                        
+										</div><!-- content-page-container -->
 									</div><!-- content-page -->
 																
 							                            
@@ -357,20 +372,61 @@ Send a Copy of reservation to Your Special one here:
                 </div><!-- page-left -->
                 
 			<br class="clear" />
-            </div><!-- content-container -->
-        </div><!-- content -->
+            </div>
+			<!-- content-container -->
+			<?php */?> 
+        </div> <!-- content -->
 
 
     <br class="clear" />
     </div><!-- canvas -->
     
     <!-- footer-areas --><!-- canvas -->
-    
+  	<!--Thumbnail Navigation-->
+	<div id="prevthumb"></div>
+	<div id="nextthumb"></div>
+	
+	<!--Arrow Navigation-->
+	<a id="prevslide" class="load-item"></a>
+	<a id="nextslide" class="load-item"></a>
+	
+	<div id="thumb-tray" class="load-item">
+		<div id="thumb-back"></div>
+		<div id="thumb-forward"></div>
+	</div>
+	
+	<!--Time Bar-->
+	<div id="progress-back" class="load-item">
+		<div id="progress-bar"></div>
+	</div>
+	
+	<!--Control Bar-->
+	<div id="controls-wrapper" class="load-item">
+		<div id="controls">
+			
+			<a id="play-button"><img id="pauseplay" src="img/pause.png"/></a>
+		
+			<!--Slide counter-->
+			<div id="slidecounter">
+				<span class="slidenumber"></span> / <span class="totalslides"></span>
+			</div>
+			
+			<!--Slide captions displayed here-->
+			<div id="slidecaption"></div>
+			
+			<!--Thumb Tray button-->
+			<a id="tray-button"><img id="tray-arrow" src="img/button-tray-up.png"/></a>
+			
+			<!--Navigation-->
+			<ul id="slide-list"></ul>
+			
+		</div>
+	</div>
    
     
-    <? include("footer.php"); ?><!-- footer -->
-
-	  <script type='text/javascript' src='js/jquery/ui/jquery.ui.core.mine8d2.js?ver=1.8.20'></script>
+    <? //include("footer.php"); ?><!-- footer -->
+	
+   <script type='text/javascript' src='js/jquery/ui/jquery.ui.core.mine8d2.js?ver=1.8.20'></script>
 
 </body>
 
