@@ -699,52 +699,52 @@ box-shadow:0 1px 1px rgba(0,0,0,0);
 			<div id="SlideItMoo_items">
 				<div class="SlideItMoo_element">
                 	<strong>Hotel Alankar</strong>
-                    	<img src="gallery/thumb/001.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/001.jpg" /></a>
                         Hotel Alankar
                 </div>	
 				<div class="SlideItMoo_element">
                 	<strong>Cuisine</strong>
-                    	<img src="gallery/thumb/002.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/002.jpg" /></a>
                         Cuisine
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Gossip</strong>
-                    	<img src="gallery/thumb/003.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/003.jpg" /></a>
                     Gossip   
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Topaz</strong>
-                    	<img src="gallery/thumb/004.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/004.jpg" /></a>
                         Topaz
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>South East</strong>
-                		<img src="gallery/thumb/005.jpg" />
+                		<a href="gallery.php"><img src="gallery/thumb/005.jpg" /></a>
                         South East
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Tiffinys</strong>
-                    	<img src="gallery/thumb/006.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/006.jpg" /></a>
                         Tiffinys
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Facilities</strong>
-                    	<img src="gallery/thumb/007.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/007.jpg" /></a>
                         Facilities
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Restaurants</strong>
-                    	<img src="gallery/thumb/008.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/008.jpg" /></a>
                         Restaurants
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Accomodation</strong>
-                    	<img src="gallery/thumb/009.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/009.jpg" /></a>
                         Accomodation
                 </div>
 				<div class="SlideItMoo_element">
                 	<strong>Rooms</strong>
-                    	<img src="gallery/thumb/010.jpg" />
+                    	<a href="gallery.php"><img src="gallery/thumb/010.jpg" /></a>
                         Rooms
                 </div>				
 			</div>			
