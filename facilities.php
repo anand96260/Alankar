@@ -309,11 +309,11 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
     </td>
   </tr>
   <tr>
-    <td><img src="facility_images/TV_smal.png" style=" width:80px; height:35px;"/></td>
+    <td><img src="facility_images/TV_smal.png" style=" width:30px; height:30px;"/></td>
     <td> <ul type="disc"><li>71 Satellite TV       Channels.</li>
                                               <li>LCD television. </li></ul>
     </td>
-    <td><img src="facility_images/WashingMachine.png" style=" width:120px; height:60px;"/></td>
+    <td><img src="facility_images/WashingMachine.png" style=" width:120px; height:45px;"/></td>
     <td><ul type="disc"><li>Laundry       Services.</li> </ul></td>
   </tr>
   <tr>
