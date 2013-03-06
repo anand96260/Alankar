@@ -292,7 +292,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
                                             <div>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="5%"><img src="facility_images/honor-clock-24-7.png" style=" width:60px; height:60px;"/></td>
+    <td width="5%"><img src="facility_images/honor-clock-24-7.png" style=" width:45px; height:45px;"/></td>
     <td width="40%"><ul type="disc">
                                               <li>24 hours check       in.</li>
                                               <li>24 hours Room       Service.</li>
@@ -301,7 +301,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
 											  <li>24 Hours       Corridor Music. </li>
 											  </ul>
    </td>
-    <td width="5%"><img src="facility_images/phone.png" style=" width:60px; height:60px;"/></td>
+    <td width="5%"><img src="facility_images/phone.png" style=" width:45px; height:45px;"/></td>
     <td width="40%"> <ul type="disc"> <li>Direct Dialling       STD / ISD.</li>
                                               <li>Cordless Telephones. </li>
                                               <li>Complimentary       Broadband Wireless Internet.</li>
@@ -309,20 +309,20 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
     </td>
   </tr>
   <tr>
-    <td><img src="facility_images/TV_smal.png" style=" width:30px; height:30px;"/></td>
+    <td><img src="facility_images/TV_smal.png" style=" width:30px; height:30px;margin-left:5px;"/></td>
     <td> <ul type="disc"><li>71 Satellite TV       Channels.</li>
                                               <li>LCD television. </li></ul>
     </td>
-    <td><img src="facility_images/WashingMachine.png" style=" width:120px; height:45px;"/></td>
+    <td><img src="facility_images/WashingMachine.png" style=" width:35px; height:35px;"/></td>
     <td><ul type="disc"><li>Laundry       Services.</li> </ul></td>
   </tr>
   <tr>
-    <td><img src="facility_images/smokedetector_small.png" style=" width:60px; height:35px;"/></td>
+    <td><img src="facility_images/smokedetector_small.png" style=" width:40px; height:35px;margin-left:5px;"/></td>
     <td><ul type="disc"><li>Safe Deposit       Lockers in Rooms.</li>
                                               <li>Smoke Sensors. </li>
                                               <li>Fire Alarm       Supreme. </li></ul>
     </td>
-    <td><img src="facility_images/car.png" style=" width:120; height:120px;"/></td>
+    <td><img src="facility_images/car.png" style=" width:50px; height:75px;"/></td>
     <td><ul type="disc">
 	 <li>Adequate Car       Parking Facility. </li>
                                               <li>Separate       accommodation for Drivers. </li>
@@ -333,7 +333,7 @@ header("Location: reserve.php?Room=$_POST[RoomType]&Arrival=$Arrival&Departure=$
     <td><img src="facility_images/socket.png" style=" width:57px; height:43px;"/></td>
     <td ><ul type="disc"><li>International       power socket.</li>
                                               <li style="width:250px;">Uninterrupted       power supply in one socket for all your charging needs.</li></ul></td>
-    <td><img src="facility_images/computer.png" style=" width:60px; height:60px;"/></td>
+    <td><img src="facility_images/computer.png" style=" width:45px; height:45px;"/></td>
     <td><ul type="disc"><li>B’hive Business       centre with stand alone desktops and print, scan, copy and fax facilities.</li></ul></td>
   </tr>
 </table>
